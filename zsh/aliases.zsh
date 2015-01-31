@@ -16,6 +16,7 @@ alias gpr="git pull --rebase"
 
 alias gp="git push"
 alias gpu="git-push-with-tracking"
+alias gpsu="git push --set-upstream origin"
 
 alias ga="git add"
 alias gap="git add -p"
@@ -51,8 +52,5 @@ alias gm='git merge --no-ff'
 alias gmf='git merge --ff-only'
 
 alias tcl='titanium clean'
-alias tios='titanium build --platform ios'
-alias tian='titanium build --platform android -T device'
-
-alias ios='rake "mobile[~/Projects/dosewatcher-ios/www/assets]"'
-alias andr='rake "mobile[~/Projects/dosewatcher-android/assets/www/assets]"'
+alias tios='titanium build --platform ios --log-level info'
+alias tian='titanium build --platform android --build-only'
