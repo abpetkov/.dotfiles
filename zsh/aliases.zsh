@@ -48,9 +48,13 @@ alias gsf="git submodule foreach git pull origin master"
 
 alias gdm="git delete-merged"
 
-alias gm='git merge --no-ff'
-alias gmf='git merge --ff-only'
+alias gm="git merge --no-ff"
+alias gmf="git merge --ff-only"
 
-alias tcl='titanium clean'
-alias tios='titanium build --platform ios --log-level info'
-alias tian='titanium build --platform android --build-only'
+# Titanium
+alias tcl="titanium clean"
+alias tios="titanium build --platform ios --log-level info"
+alias tian="titanium build --platform android --build-only"
+
+# Rails
+alias fs="bundle exec foreman start"
