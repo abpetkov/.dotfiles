@@ -6,12 +6,7 @@ YB=$fg_bold[yellow]
 BB=$fg_bold[blue]
 RESET=$reset_color
 
-if [ "$(whoami)" = "root" ]; then
-  PROMPTCOLOR="%{$RB%}" PREFIX="-!-";
-else
-  PROMPTCOLOR="" PREFIX="---";
-fi
-
+local PREFIX="%{$BB%}>%{$RESET%}"
 local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
 
 function git_prompt() {
@@ -43,5 +38,5 @@ GIT_PROMPT_DIRTY="%{$R%}*"
 GIT_PROMPT_STAGED="%{$G%}+"
 GIT_PROMPT_UNTRACKED="%{$R%}?"
 
-PROMPT='%B$PREFIX %2~ $(git_prompt)%{$M%}%B»%b%{$RESET%} '
+PROMPT='%B$PREFIX %B%2~ $(git_prompt)%{$M%}%B»%b%{$RESET%} '
 RPS1="${return_code}"
