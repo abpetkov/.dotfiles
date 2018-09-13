@@ -2,10 +2,6 @@
 autoload colors
 colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
-export PATH=/bin:/usr/bin:/usr/local/bin:$PATH
-export PATH=/usr/local/bin/psql:$PATH
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 setopt multios
 setopt prompt_subst
