@@ -42,3 +42,5 @@ setopt share_history
 # Path
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
