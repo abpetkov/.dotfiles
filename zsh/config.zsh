@@ -42,6 +42,7 @@ setopt share_history
 # Path
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
 # Loaders
 export NVM_DIR="$HOME/.nvm"
