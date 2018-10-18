@@ -50,3 +50,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # Load NVM
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
+
+# Tokens
+export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
