@@ -1,0 +1,19 @@
+{
+	"color_scheme": "Packages/User/Themes/spacegray-dark-modified.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		"node_modules",
+		".next"
+	],
+	"font_size": 12.0,
+	"ignored_packages":
+	[
+		"CoffeeScript",
+		"Vintage"
+	],
+	"tab_size": 2,
+	"theme": "Spacegray Eighties.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
