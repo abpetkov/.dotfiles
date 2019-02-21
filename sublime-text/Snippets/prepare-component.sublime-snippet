@@ -10,5 +10,4 @@ const prepareComponent = (props) =>
 $0
 ]]></content>
   <tabTrigger>prep</tabTrigger>
-  <scope>source.js</scope>
 </snippet>
