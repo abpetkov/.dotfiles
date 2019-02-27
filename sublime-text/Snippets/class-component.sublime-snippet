@@ -1,0 +1,29 @@
+<snippet>
+  <content><![CDATA[
+import React from 'react';
+
+interface State {
+  ${1:StateProp}: any;
+}
+
+interface Props {
+  ${2:Prop}: any;
+}
+
+export default class ${3:Name} extends React.Component<Props, State> {
+  state: State = {
+    ${1:StateProp}: true
+  };
+
+  render() {
+    return (
+      <div>
+        ${4:Render}
+      </div>
+    );
+  }
+}
+]]></content>
+  <tabTrigger>rcc</tabTrigger>
+  <description>TypeScript React Class Component</description>
+</snippet>
