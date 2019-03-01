@@ -1,0 +1,9 @@
+<snippet>
+  <content><![CDATA[
+const render = (props: any) => {
+  return mount(<${1:Component} {...defaultProps} {${2:...props}} />);$0
+};
+]]></content>
+  <tabTrigger>ren</tabTrigger>
+  <description>TypeScript React Mount Component for Tests</description>
+</snippet>
