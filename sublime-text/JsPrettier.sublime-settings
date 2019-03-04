@@ -1,0 +1,7 @@
+{
+  "prettier_options": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "jsxBracketSameLine": true
+  }
+}
