@@ -1,0 +1,19 @@
+<snippet>
+  <content><![CDATA[
+import React from 'react';
+
+interface Props {
+  ${1:Property}: ${2:PropType};
+}
+
+export default function ${3:Name}({ ${1:Property} }: Props) {
+  return (
+    <div>
+      ${4:Render}
+    </div>
+  );
+}
+]]></content>
+  <tabTrigger>rcs</tabTrigger>
+  <description>TypeScript React Stateless Component</description>
+</snippet>
