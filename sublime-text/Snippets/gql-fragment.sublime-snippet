@@ -1,0 +1,19 @@
+<snippet>
+  <content><![CDATA[
+import gql from 'graphql-tag';
+import { ${1:My}Fragment as ${2:Fragment} } from '~/schema.ts';
+
+const ${3:MyVariable}Fragment = gql`
+  fragment ${1:My}Fragment on ${4:Type} {
+    id
+    ${5:props}$0
+  }
+`;
+
+export default ${3:MyVariable}Fragment;
+export { ${2:Fragment} };
+
+]]></content>
+  <tabTrigger>gqlf</tabTrigger>
+  <description>TypeScript Apollo GraphQL Fragment Query and Type</description>
+</snippet>
