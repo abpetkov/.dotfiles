@@ -54,4 +54,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Tokens
 export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
-export FURY_AUTH=$(cat ~/.furyauth)
