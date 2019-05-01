@@ -6,6 +6,7 @@
   - `mkdir Themes && ln -s ~/.dotfiles/sublime-text/Themes/spacegray-dark-modified.tmTheme Themes/spacegray-dark-modified.tmTheme`
   - `rm -r Preferences.sublime-settings && ln -s ~/.dotfiles/sublime-text/Preferences.sublime-settings Preferences.sublime-settings`
   - `ln -s ~/.dotfiles/sublime-text/Default\ \(OSX\).sublime-keymap`
+  - `ln -s ~/.dotfiles/sublime-text/JsPrettier.sublime-settings`
 
 ### Additional information
 
