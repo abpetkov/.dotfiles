@@ -7,6 +7,8 @@
   - `rm -r Preferences.sublime-settings && ln -s ~/.dotfiles/sublime-text/Preferences.sublime-settings Preferences.sublime-settings`
   - `ln -s ~/.dotfiles/sublime-text/Default\ \(OSX\).sublime-keymap`
   - `ln -s ~/.dotfiles/sublime-text/JsPrettier.sublime-settings`
+  - `ln -s ~/.dotfiles/sublime-text/SublimeLinter.sublime-settings`
+  - `ln -s ~/.dotfiles/sublime-text/Snippets`
 
 ### Additional information
 
