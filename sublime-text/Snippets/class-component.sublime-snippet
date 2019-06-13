@@ -10,15 +10,19 @@ interface Props {
   ${2:Prop}: any;
 }
 
-export default class ${3:Name} extends React.Component<Props, State> {
+export default class ${4:Name} extends React.Component<Props, State> {
+  static defaultProps = {
+    ${2:Prop}: ${3:PropDefaultValue},
+  };
+
   state: State = {
-    ${1:StateProp}: true
+    ${1:StateProp}: true,
   };
 
   render() {
     return (
       <div>
-        ${4:Render}
+        ${5:Render}
       </div>
     );
   }
