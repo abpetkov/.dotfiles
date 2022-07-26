@@ -42,14 +42,15 @@ setopt share_history
 
 # Path
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$PATH:./node_modules/.bin"
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # Loaders
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # Load NVM
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM
+eval "$(rbenv init -)"
 
 # Tokens
 export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
