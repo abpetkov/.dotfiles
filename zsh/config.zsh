@@ -54,6 +54,3 @@ eval "$(rbenv init -)"
 
 # Tokens
 export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
-
-# Default editor
-export EDITOR=subl
