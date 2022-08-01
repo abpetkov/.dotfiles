@@ -45,6 +45,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$PATH:./node_modules/.bin"
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Loaders
 export NVM_DIR="$HOME/.nvm"
