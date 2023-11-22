@@ -55,3 +55,7 @@ eval "$(rbenv init -)"
 
 # Tokens
 export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
+
+# arm64 Chromium issue fix
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
