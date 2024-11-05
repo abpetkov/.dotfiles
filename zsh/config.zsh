@@ -59,3 +59,8 @@ export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
 # arm64 Chromium issue fix
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
