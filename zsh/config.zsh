@@ -44,8 +44,12 @@ setopt share_history
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.webdrivers:$PATH"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH="$GOPATH/bin:$PATH"
 
 # Loaders
 export NVM_DIR="$HOME/.nvm"
@@ -53,8 +57,16 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(rbenv init -)"
 
+# bun
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # Tokens
 export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
+
+export DD_APP_KEY=$(cat ~/.datadog/config | awk -F'app_key=' '{print $2}' | xargs)
+export DD_API_KEY=$(cat ~/.datadog/config | awk -F'api_key=' '{print $2}' | xargs)
 
 # arm64 Chromium issue fix
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
@@ -64,3 +76,5 @@ export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
