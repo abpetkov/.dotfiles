@@ -1,42 +1,57 @@
 R=$fg[red]
-G=$fg[green]
-M=$fg[magenta]
-RB=$fg_bold[red]
-YB=$fg_bold[yellow]
-BB=$fg_bold[blue]
 RESET=$reset_color
 
-local PRE="%{$BB%}>%{$RESET%}"
 local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
 
-function git_prompt() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  STATUS=""
+PROMPT_PATH_BG="#78dce8"
+PROMPT_PATH_FG="#2d2a2e"
+PROMPT_GIT_BG="#a9dc76"
+PROMPT_GIT_FG="#2d2a2e"
+PROMPT_ARROW_1="#ffd866"
+PROMPT_ARROW_2="#ff6188"
 
-  git diff --no-ext-diff --quiet --exit-code || STATUS="$GIT_PROMPT_DIRTY$STATUS"
+function git_prompt() {
+  local ref marks=""
+  ref=$(git symbolic-ref --short HEAD 2> /dev/null) || return
+
+  git diff --no-ext-diff --quiet --exit-code || marks="*${marks}"
 
   if git rev-parse --quiet --verify HEAD >/dev/null; then
-    git diff-index --cached --quiet HEAD -- || STATUS="$GIT_PROMPT_STAGED$STATUS"
+    git diff-index --cached --quiet HEAD -- || marks="+${marks}"
   else
-    STATUS="#$STATUS"
+    marks="#${marks}"
   fi
 
   if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    STATUS="$GIT_PROMPT_UNTRACKED$STATUS"
+    marks="?${marks}"
   fi
 
-  if $(echo -n "$STATUS" | grep '.*' &> /dev/null); then
-    STATUS=" $STATUS"
+  if [ -n "$marks" ]; then
+    print -r -- "${ref} ${marks}"
+  else
+    print -r -- "$ref"
   fi
-
-  echo "$GIT_PROMPT_PREFIX${ref#refs/heads/}$STATUS$GIT_PROMPT_SUFFIX"
 }
 
-GIT_PROMPT_PREFIX="%{$YB%}‹"
-GIT_PROMPT_SUFFIX="%{$YB%}›%{$RESET%} "
-GIT_PROMPT_DIRTY="%{$R%}*"
-GIT_PROMPT_STAGED="%{$G%}+"
-GIT_PROMPT_UNTRACKED="%{$R%}?"
+function prompt_build() {
+  local cap=$'\ue0b6' sep=$'\ue0b0'
+  local branch
+  branch=$(git_prompt)
 
-PROMPT='%B$PRE %B%2~ $(git_prompt)%{$M%}%B»%b%{$RESET%} '
+  local out="%F{${PROMPT_PATH_BG}}${cap}%K{${PROMPT_PATH_BG}}%F{${PROMPT_PATH_FG}}%2~ "
+  local tail_bg="$PROMPT_PATH_BG"
+
+  if [ -n "$branch" ]; then
+    out+="%K{${PROMPT_GIT_BG}}%F{${PROMPT_PATH_BG}}${sep}%F{${PROMPT_GIT_FG}} ${branch} "
+    tail_bg="$PROMPT_GIT_BG"
+  fi
+
+  # Each arrow's background is the next arrow's color, so they meet with no gap.
+  out+="%K{${PROMPT_ARROW_1}}%F{${tail_bg}}${sep}"
+  out+="%K{${PROMPT_ARROW_2}}%F{${PROMPT_ARROW_1}}${sep}"
+  out+="%k%F{${PROMPT_ARROW_2}}${sep}%f "
+  print -r -- "$out"
+}
+
+PROMPT='$(prompt_build)'
 RPS1="${return_code}"
