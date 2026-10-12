@@ -3,53 +3,50 @@ RESET=$reset_color
 
 local return_code="%(?..%{$R%}%? ↵%{$RESET%})"
 
-PROMPT_PATH_BG="#78dce8"
-PROMPT_PATH_FG="#2d2a2e"
-PROMPT_GIT_BG="#a9dc76"
-PROMPT_GIT_FG="#2d2a2e"
-PROMPT_ARROW_1="#ffd866"
-PROMPT_ARROW_2="#ff6188"
+PROMPT_PATH="#78dce8"
+PROMPT_BRANCH="#ab9df2"
+PROMPT_DIRTY="#ff6188"
+PROMPT_ARROW="#a9dc76"
+PROMPT_SEP="#727072"
 
-function git_prompt() {
-  local ref marks=""
-  ref=$(git symbolic-ref --short HEAD 2> /dev/null) || return
+function git_branch() {
+  git symbolic-ref --short HEAD 2> /dev/null
+}
 
-  git diff --no-ext-diff --quiet --exit-code || marks="*${marks}"
+function git_marks() {
+  local marks=""
+
+  git diff --no-ext-diff --quiet --exit-code || marks+="!"
 
   if git rev-parse --quiet --verify HEAD >/dev/null; then
-    git diff-index --cached --quiet HEAD -- || marks="+${marks}"
+    git diff-index --cached --quiet HEAD -- || marks+="+"
   else
-    marks="#${marks}"
+    marks+="#"
   fi
 
   if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    marks="?${marks}"
+    marks+="?"
   fi
 
   if [ -n "$marks" ]; then
-    print -r -- "${ref} ${marks}"
-  else
-    print -r -- "$ref"
+    print -r -- "[$marks]"
   fi
 }
 
 function prompt_build() {
-  local cap=$'\ue0b6' sep=$'\ue0b0'
-  local branch
-  branch=$(git_prompt)
+  local branch marks
+  local out="%F{${PROMPT_PATH}}%2~%f"
 
-  local out="%F{${PROMPT_PATH_BG}}${cap}%K{${PROMPT_PATH_BG}}%F{${PROMPT_PATH_FG}}%2~ "
-  local tail_bg="$PROMPT_PATH_BG"
-
+  branch=$(git_branch)
   if [ -n "$branch" ]; then
-    out+="%K{${PROMPT_GIT_BG}}%F{${PROMPT_PATH_BG}}${sep}%F{${PROMPT_GIT_FG}} ${branch} "
-    tail_bg="$PROMPT_GIT_BG"
+    marks=$(git_marks)
+    out+=" %F{${PROMPT_SEP}}»%f %F{${PROMPT_BRANCH}}${branch}%f"
+    if [ -n "$marks" ]; then
+      out+=" %F{${PROMPT_DIRTY}}${marks}%f"
+    fi
   fi
 
-  # Each arrow's background is the next arrow's color, so they meet with no gap.
-  out+="%K{${PROMPT_ARROW_1}}%F{${tail_bg}}${sep}"
-  out+="%K{${PROMPT_ARROW_2}}%F{${PROMPT_ARROW_1}}${sep}"
-  out+="%k%F{${PROMPT_ARROW_2}}${sep}%f "
+  out+=" %F{${PROMPT_ARROW}}→%f "
   print -r -- "$out"
 }
 
