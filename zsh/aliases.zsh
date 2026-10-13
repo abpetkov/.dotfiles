@@ -58,3 +58,7 @@ alias tian="titanium build --platform android --build-only"
 
 # Rails
 alias fs="bundle exec foreman start"
+
+# Editors
+alias nv="nvim"
+alias hdr="herdr"
