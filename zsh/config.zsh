@@ -63,6 +63,13 @@ eval "$(rbenv init -)"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # Tokens
 export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
 
