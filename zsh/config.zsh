@@ -76,13 +76,12 @@ export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
 export DD_APP_KEY=$(cat ~/.datadog/config | awk -F'app_key=' '{print $2}' | xargs)
 export DD_API_KEY=$(cat ~/.datadog/config | awk -F'api_key=' '{print $2}' | xargs)
 
+
 # arm64 Chromium issue fix
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 
-# Python
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# History suggestions.
+if [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
