@@ -39,6 +39,7 @@ alias gsh="git stash"
 alias gshp="git stash pop"
 
 alias gd="git diff"
+alias gds="git diff --stat"
 alias gdc="git diff --cached"
 
 alias gst="git status --short"
