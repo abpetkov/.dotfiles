@@ -52,6 +52,8 @@ alias gdm="git delete-merged"
 alias gm="git merge --no-ff"
 alias gmf="git merge --ff-only"
 
+alias lg="lazygit"
+
 # Titanium
 alias tcl="titanium clean"
 alias tios="titanium build --platform ios --log-level info"
