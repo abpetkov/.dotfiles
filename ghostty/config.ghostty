@@ -1,0 +1,13 @@
+theme = "Kanagawa Wave"
+background = #2D2A2E
+
+window-save-state = always
+window-padding-x = 8
+window-padding-y = 6
+
+cursor-style = block
+shell-integration-features = no-cursor
+
+macos-option-as-alt = true
+
+
