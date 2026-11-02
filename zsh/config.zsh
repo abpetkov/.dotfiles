@@ -73,9 +73,8 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # Tokens
 export NPM_TOKEN=$(cat ~/.npmrc | awk -F'_authToken=' '{print $2}')
 
-export DD_APP_KEY=$(cat ~/.datadog/config | awk -F'app_key=' '{print $2}' | xargs)
-export DD_API_KEY=$(cat ~/.datadog/config | awk -F'api_key=' '{print $2}' | xargs)
-
+# Private keys
+[ -f "$HOME/.config/secrets/secrets.env" ] && set -a && source "$HOME/.config/secrets/secrets.env" && set +a
 
 # arm64 Chromium issue fix
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
