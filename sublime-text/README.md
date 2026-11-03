@@ -1,4 +1,6 @@
-### Installation instructions
+# Sublime Text
+
+## Setup
 
 1. Install Sublime Text 3
 2. Install and load the [Spacegray](https://github.com/kkga/spacegray#spacegray-eighties) theme
@@ -10,6 +12,6 @@
   - `ln -s ~/.dotfiles/sublime-text/SublimeLinter.sublime-settings`
   - `ln -s ~/.dotfiles/sublime-text/Snippets`
 
-### Additional information
+## Theme
 
 `spacegray-dark-modified.tmTheme` is a modified color scheme based on [Spacegray Dark](https://github.com/kkga/spacegray#manual)
