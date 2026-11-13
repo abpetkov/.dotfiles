@@ -1,0 +1,6 @@
+gui:
+  nerdFontsVersion: "3"
+  showIcons: true
+git:
+  diffRenderers:
+    - command: delta --no-gitconfig --dark --paging=never --line-numbers --syntax-theme "Catppuccin Mocha"
